@@ -1,0 +1,11 @@
+img {
+    width: 70px;
+}
+strong {
+    font-size: 20px;
+}
+.carrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
