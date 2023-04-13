@@ -2,35 +2,52 @@ import React from 'react'
 import './NavBar.css'
 import '../CardWidget/CardWidget.jsx'
 import CardWidget from '../CardWidget/CardWidget.jsx'
+import { Link, NavLink } from 'react-router-dom'
 
 
 const NavBar = () => {
   return (
     <header>
 
+      <Link to={"/"}>
         <h1>Mundo Gamer</h1>
+      </Link>    
 
-        <nav>
+      <nav>
 
-          <ul>
+        <ul>
+          <li>
+            <NavLink to={"/"}>Inicio</NavLink>
+          </li>
 
-            <li>
-              <a href="https://www.marolio.com.ar/blog" target={'_blank'}>Inicio</a>
-              </li>
+          <li>
+            <NavLink to={"/category/procesador"}>Procesador</NavLink>
+          </li>
+            
+          <li>
+            <NavLink to={"/category/mother"}>Mother</NavLink>
+          </li>
 
-            <li>
-              <a href="https://www.marolio.com.ar/portfolio" target={'_blank'}>Login</a>
-            </li>
+          <li>
+            <NavLink to={"/category/gpu"}>GPU</NavLink>
+          </li>
 
-            <li>
-              <a href="https://www.marolio.com.ar/publicidades" target={'_blank'}>Registrarse</a>
-            </li>
+          <li>
+            <NavLink to={"category/ram"}>RAM</NavLink>
+          </li>
+      
+          <li>
+            <NavLink to={"/category/discos"}>Discos</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/registro"}>Registrarse</NavLink>
+          </li>
 
-          </ul>
+        </ul>
 
-        </nav>
+      </nav>
 
-        <CardWidget/>
+      <CardWidget/>
 
     </header>
   )

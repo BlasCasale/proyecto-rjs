@@ -1,21 +1,37 @@
-header {
-    display: grid;
-    grid-template-rows: 80px;
-    grid-template-columns: 20% 70% 10%;
-    background-color: #003554;
-    justify-items: center;
-    align-items: center;
+@media screen and (min-width: 320px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    ul li {
+        list-style: none;
+    }
+    a {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .numCart {
+        color: #fff;
+    }
 }
-ul {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
+@media screen and (min-width: 740px) {
+    header {
+        display: grid;
+        grid-template-rows: 90px;
+        grid-template-columns: 20% 70% 10%;
+        justify-items: center;
+        align-items: center;
+    }
+    ul {
+        flex-direction: row;
+    }
 }
-ul li {
-    list-style: none;
-}
-a {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
+
