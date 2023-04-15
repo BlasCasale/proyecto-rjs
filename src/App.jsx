@@ -17,6 +17,7 @@ function App() {
           <Route path="/category/:category" element={ <ItemListContainer/> }/>
           <Route path="/item/:id" element={ <ItemDetailContainer/> }/>
           <Route path="/registro" element={ <RegisterForm/>}/>
+          <Route path="*" element={<h2>Sitio en construcción</h2>}/>
         </Routes>
       
       </BrowserRouter>

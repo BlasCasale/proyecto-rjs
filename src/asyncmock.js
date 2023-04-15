@@ -4,6 +4,7 @@ const products = [
         category:"procesador",
         img: '../img/ryzen5__4500.webp',
         price: 16000,
+        stock: 5,
         id: "1",
     },
     {
@@ -11,6 +12,7 @@ const products = [
         category: "procesador",
         img: '../img/ryzen7__5700G.webp',
         price: 18500,
+        stock: 5,
         id: "2",
     },
     {
@@ -18,6 +20,7 @@ const products = [
         category: "procesador",
         img: '../img/ryzen9__5900x.webp',
         price: 21000,
+        stock: 5,
         id: "3",
     },
     {
@@ -25,6 +28,7 @@ const products = [
         category: "mother",
         img: '../img/mother__b450m.webp',
         price: 14000,
+        stock: 5,
         id: "4",
     },
     {
@@ -32,6 +36,7 @@ const products = [
         category: "mother",
         img: '../img/mother__b550.webp',
         price: 16000,
+        stock: 5,
         id: "5",
     },
     {
@@ -39,6 +44,7 @@ const products = [
         category: "mother",
         img: '../img/mother__x570.webp',
         price: 19500,
+        stock: 5,
         id: "6",
     },
     {
@@ -46,6 +52,7 @@ const products = [
         category: "gpu",
         img: '../img/rtx2080.webp',
         price: 28000,
+        stock: 3,
         id: "7",
     },
     {
@@ -53,6 +60,7 @@ const products = [
         category: "gpu",
         img: '../img/rtx3080.webp',
         price: 33500,
+        stock: 3,
         id: "8",
     },
     {
@@ -60,6 +68,7 @@ const products = [
         category: "gpu",
         img: '../img/rtx4080.webp',
         price: 38000,
+        stock: 3,
         id: "9",
     },
     {
@@ -67,49 +76,56 @@ const products = [
         category: "ram",
         img: '../img/ram__kingston8gb.webp',
         price: 3500,
-        id: "10",
+
+stock: 5,        id: "10",
     },
     {
         name: 'RAM Corsair',
         category: "ram",
         img: '../img/ram__corsiar8gb.webp',
         price: 4500,
-        id: "11",
+
+stock: 5,        id: "11",
     },
     {
         name: 'RAM Viper',
         category: "ram",
         img: '../img/ram__viper16gb.webp',
         price: 6000,
-        id: "12",
+
+stock: 5,        id: "12",
     },
     {
         name: 'Disco HDD 1TB',
         category: 'discos',
         img: '../img/discoHDD1TB.webp',
         price: 4700,
-        id: "13",
+
+stock: 5,        id: "13",
     },
     {
         name: 'Disco HDD 2TB',
         category: 'discos',
         img: '../img/discoHDD2TB.webp',
         price: 5250,
-        id: "14",
+
+stock: 5,        id: "14",
     },
     {
         name: 'Disco SDD 1TB',
         category: 'discos',
         img: '../img/discoSDD1TB.webp',
         price: 7550,
-        id: "15",
+
+stock: 5,        id: "15",
     },
     {
         name: 'Disco SDD 2TB',
         category: 'discos',
         img: '../img/discoSDD1TB.webp',
         price: 9750,
-        id: "16",
+
+stock: 5,        id: "16",
     },
 ]
 

@@ -1,23 +1,14 @@
 import React from 'react'
-import './ItemDetail.css'
+import ItemCount from '../ItemCount/ItemCount'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-const ItemDetail = ({name, price, img}) => {
-  const stock = 10
-  const initial = 1
-  const [amount, setAmount] = useState(initial)
+const ItemDetail = ({name, price, img, stock}) => {
+  const [addQuantity, setAddQuantity] = useState(0) 
 
-  const addCounter = () => {
-      if (amount < stock){
-          setAmount(amount +1)
-      }
+  const handlerQuantity = (quantity) => {
+    setAddQuantity(quantity)
   }
-  const subtractCounter = () => {
-      if (amount > initial){
-          setAmount(amount -1)
-      }
-  }
-
 
   return (
     <div className='card'>
@@ -27,17 +18,11 @@ const ItemDetail = ({name, price, img}) => {
       <p className='price'>${price}</p>
 
       <img src={img} alt={name} className='card--img'/>
-
-      <div className='card__btn'>
-
-        <button className='card--btn' onClick={subtractCounter}>-</button>
-
-        <strong>{amount}</strong>
-
-        <button className='card--btn' onClick={addCounter}>+</button>
-
-      </div>
-        
+      
+      {
+        addQuantity > 0 ? (<Link to="/cart">Terminar compra</Link>) : (<ItemCount initial={1} stock={stock} addFunction={handlerQuantity}/>)
+      }  
+      
     </div>
   )
 }
