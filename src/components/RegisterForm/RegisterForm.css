@@ -5,7 +5,7 @@
     align-items: center;
     background-color: #79ADDC;
 }
-fieldset {
+.fieldset--register {
     width: 320px;
     height: 300px;
     padding: 5px;
@@ -40,6 +40,20 @@ legend {
     padding: 5px;
     border-radius: 10px;
 }
+.form--btn:hover {
+    background-color: #003554;
+    color: white;
+    cursor: pointer;
+}
+.p--negative {
+    color: red;
+    font-weight: bold;
+}
+.p--positive {
+    color: green;
+    font-weight: bold;
+}
+
 
 /*
         @include sizes(320px, 300px);

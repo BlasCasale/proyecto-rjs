@@ -22,16 +22,19 @@
         color: #fff;
     }
 }
+
 @media screen and (min-width: 740px) {
+    ul {
+        flex-direction: row;
+    }
+}
+@media screen and (min-width: 1024px) {
     header {
         display: grid;
         grid-template-rows: 90px;
-        grid-template-columns: 20% 70% 10%;
+        grid-template-columns: 15% 75% 10%;
         justify-items: center;
         align-items: center;
-    }
-    ul {
-        flex-direction: row;
     }
 }
 

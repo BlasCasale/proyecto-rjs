@@ -39,8 +39,13 @@ const NavBar = () => {
           <li>
             <NavLink to={"/category/discos"}>Discos</NavLink>
           </li>
+
           <li>
-            <NavLink to={"/registro"}>Registrarse</NavLink>
+            <NavLink to={"/register"}>Registrarse</NavLink>
+          </li>
+          
+          <li>
+            <NavLink to={"/login"}>Inicia sesión</NavLink>
           </li>
 
         </ul>
