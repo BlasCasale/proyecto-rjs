@@ -27,18 +27,21 @@ const RegisterForm = () => {
 
     const pForm = useRef(null)
 
-    const [inputName, setInputName] = useState("")
-
-    const [inputDni, setInputDni] = useState("")
-
-    const [inputPass, setInputPass] = useState("")
+    const [input, setInput] = useState({name: "", pass: "", dni: ""})
 
     const registerUser = (name, dni, pass) => {
         setClients([...clients, new Client(name, pass, dni)])
     }
 
+    const handleInput = (e) => {
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value
+        })
+    }
+
     const handleSubmit = (e) => {
-        const userDni = clients.find(user => user.dni == inputDni)
+        const userDni = clients.find(user => user.dni == input.dni)
 
         e.preventDefault()
 
@@ -46,10 +49,7 @@ const RegisterForm = () => {
             pForm.current.textContent = "Ya existe un usuario registrado."
             setColor("p--negative")
         } else {
-            registerUser(inputName, inputDni, inputPass)
-            setInputName("")
-            setInputDni("")
-            setInputPass("")
+            registerUser(input.name, input.dni, input.pass)
             pForm.current.textContent = "Usuario registrado existosamente."
             setColor("p--positive")
         }
@@ -69,11 +69,11 @@ const RegisterForm = () => {
 
                 <legend>Registra tu cuenta</legend>
                 
-                <input type="text" className='input--form' required placeholder='Ingresa tu nombre' value={inputName} onChange={(e) => setInputName(e.target.value)}/>
+                <input type="text" className='input--form' required name='name' placeholder='Ingresa tu nombre' value={input.name} onChange={handleInput}/>
 
-                <input type="number" className='input--form' required placeholder='Ingresa tu DNI' value={inputDni} onChange={(e) => setInputDni(e.target.value)}/>
+                <input type="number" className='input--form' required name='dni' placeholder='Ingresa tu DNI' value={input.dni} onChange={handleInput}/>
 
-                <input type='password' className='input--form' required placeholder='Ingresa tu contraseña' value={inputPass} onChange={(e) => setInputPass(e.target.value)}/>
+                <input type='password' className='input--form' required name='pass' placeholder='Ingresa tu contraseña' value={input.pass} onChange={handleInput}/>
 
                 <button type='submit' className='form--btn'>Registrarse</button>
 

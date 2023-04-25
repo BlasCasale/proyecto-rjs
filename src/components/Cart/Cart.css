@@ -1,0 +1,18 @@
+.cart--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #3A7CA5;
+    padding: 30px 0px;
+}
+.empty--cart {
+    border: none;
+    background-color: #003554;
+    border-radius: 15px;
+    color: white;
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+}

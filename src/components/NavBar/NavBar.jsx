@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './NavBar.css'
 import '../CardWidget/CardWidget.jsx'
 import CardWidget from '../CardWidget/CardWidget.jsx'
 import { Link, NavLink } from 'react-router-dom'
+import { LoginContext } from '../../context/loginContext'
+import ConditionalLink from '../ConditionalLink/ConditionalLink'
+import UserAvatarNav from '../UserAvatarNav/UserAvatarNav'
 
 
 const NavBar = () => {
+  const {loged} = useContext(LoginContext)
+
   return (
     <header>
 
@@ -40,13 +45,9 @@ const NavBar = () => {
             <NavLink to={"/category/discos"}>Discos</NavLink>
           </li>
 
-          <li>
-            <NavLink to={"/register"}>Registrarse</NavLink>
-          </li>
-          
-          <li>
-            <NavLink to={"/login"}>Inicia sesión</NavLink>
-          </li>
+          {
+            loged ? (<UserAvatarNav/>) : (<ConditionalLink/>)
+          }
 
         </ul>
 

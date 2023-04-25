@@ -6,6 +6,8 @@ import './index.css'
 import RegisterForm from "./components/RegisterForm/RegisterForm.jsx";
 import LoginForm from "./components/LoginForm/LoginForm.jsx";
 import { CartProvider } from "./context/cartContext.js";
+import Cart from "./components/Cart/Cart.jsx";
+import { LoginProvider } from "./context/loginContext.js";
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
 
       <BrowserRouter>
         <CartProvider>
+        <LoginProvider>
           <NavBar/>
           <Routes>
             <Route path="/" element={ <ItemListContainer/>}/>
@@ -20,8 +23,10 @@ function App() {
             <Route path="/item/:id" element={ <ItemDetailContainer/> }/>
             <Route path="/register" element={ <RegisterForm/>}/>
             <Route path="/login" element={ <LoginForm/> }/>
+            <Route path="/cart" element={ <Cart/> }/>
             <Route path="*" element={<h2>Sitio en construcción</h2>}/>
           </Routes>  
+        </LoginProvider>
         </CartProvider>
       </BrowserRouter>
     </>
