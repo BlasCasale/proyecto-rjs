@@ -30,8 +30,9 @@ const Form = () => {
       const findDni = clients.find(client => client.dni == dni)
       const findPass = clients.find(client => client.pass == pass)
 
+
       if (findDni && findPass) {
-        loginUser(...clients)
+        loginUser(findDni)
       } else {
         pForm.current.textContent = "El DNI y la contraseña no coinciden."
         setColor("p--negative")

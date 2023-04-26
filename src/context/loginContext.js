@@ -5,8 +5,8 @@ export const LoginContext = createContext({loged: null})
 export const LoginProvider = ({children}) => {
     const [loged, setLoged] = useState(null)
 
-    const loginUser = (param) => {
-        return setLoged(param)
+    const loginUser = (dni) => {
+        return setLoged(dni)
     }
 
     const logoutUser = () => {

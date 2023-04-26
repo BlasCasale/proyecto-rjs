@@ -3,6 +3,7 @@ import ItemCount from '../ItemCount/ItemCount'
 import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/cartContext'
+import LinkDetail from '../LinkDetail/LinkDetail'
 
 const ItemDetail = ({id, name, price, img, stock}) => {
   const [addQuantity, setAddQuantity] = useState(0) 
@@ -27,7 +28,7 @@ const ItemDetail = ({id, name, price, img, stock}) => {
       <img src={img} alt={name} className='card--img'/>
       
       {
-        addQuantity > 0 ? (<Link to="/cart">Terminar compra</Link>) : (<ItemCount initial={1} stock={stock} addFunction={handlerQuantity}/>)
+        addQuantity > 0 ? (<LinkDetail/>) : (<ItemCount initial={1} stock={stock} addFunction={handlerQuantity}/>)
       }  
       
     </div>
