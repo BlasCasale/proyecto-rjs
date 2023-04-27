@@ -11,10 +11,7 @@ export const CartProvider = ({children}) => {
     }
 
     const addToCart = (item, quantity) => {
-        const poronga = cart.some(prod => prod.id === item.id)
-        if (poronga) {
-            console.log("Producto ya agregado.")
-        } else {
+        if (!alreadyInTheCart(item.id)) {
             setCart([ ...cart, {item, quantity} ])
         }
     }

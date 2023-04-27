@@ -1,64 +1,64 @@
-import React from 'react'
-import { useState, useEffect, useRef } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import './RegisterForm.css'
+import { addDoc, collection, getDocs } from 'firebase/firestore'
+import { db } from '../../service/firebase/config'
 
 const RegisterForm = () => {
     const [color, setColor] = useState("")
 
+    const [user, setUser] = useState([])
+
     const style = color
-
-    class Client {
-        constructor (name, pass, dni){
-            this.name = name
-            this.pass = pass
-            this.dni = dni
-        }
-    }
-
-    const [clients, setClients ] = useState( () => {
-        const clientsLS = localStorage.getItem('clients')
-
-        if (clientsLS) {
-            return JSON.parse(clientsLS)
-        }else {
-            return []
-        }
-    })
 
     const pForm = useRef(null)
 
-    const [input, setInput] = useState({name: "", pass: "", dni: ""})
+    const [input, setInput] = useState({name: "", pass: "", passTwo: "", dni: "", cellphone: "", email: "", adress: ""})
+    
+    useEffect( () => {
+        const myUsers = collection(db, "users")
+        
+        getDocs(myUsers)
+        .then((user) => {
+            const newUser = user.docs.map((client) => {
+                const data = client.data()
+                return {...data}
+            })
+                setUser(newUser)
+            })
+            .catch(error => console.log(error))
+    }, [])
 
-    const registerUser = (name, dni, pass) => {
-        setClients([...clients, new Client(name, pass, dni)])
+    const compareDni = (dni) => {
+        return user.find(user => user.dni == dni)
     }
-
+    
     const handleInput = (e) => {
         setInput({
             ...input,
             [e.target.name]: e.target.value
         })
     }
-
+    
     const handleSubmit = (e) => {
-        const userDni = clients.find(user => user.dni == input.dni)
-
         e.preventDefault()
 
-        if (userDni) {
-            pForm.current.textContent = "Ya existe un usuario registrado."
+        if (compareDni(input.dni)) {
             setColor("p--negative")
+            pForm.current.textContent = "Usuario ya registrado"
         } else {
-            registerUser(input.name, input.dni, input.pass)
-            pForm.current.textContent = "Usuario registrado existosamente."
-            setColor("p--positive")
+            addDoc(collection(db, "users"), {
+                name: input.name,
+                dni: input.dni,
+                pass: input.pass,
+                passTwo: input.passTwo,
+                cellphone: input.cellphone,
+                email: input.cellphone,
+                adress: input.adress,
+            })
+            setInput({name: "", dni: "", pass: "", passTwo: "", cellphone: "", email: "", adress: ""})
         }
     }
-
-    useEffect( () => {
-        localStorage.setItem('clients', JSON.stringify(clients))
-    } , [clients])
-
 
   return (
     <div className='form--box'>
@@ -74,6 +74,16 @@ const RegisterForm = () => {
                 <input type="number" className='input--form' required name='dni' placeholder='Ingresa tu DNI' value={input.dni} onChange={handleInput}/>
 
                 <input type='password' className='input--form' required name='pass' placeholder='Ingresa tu contraseña' value={input.pass} onChange={handleInput}/>
+
+                <input type="password" className='input--form' required name='passTwo' placeholder='Repeti tu contraseña' value={input.passTwo} onChange={handleInput}/>
+                
+                <input type="number" className='input--form' required name='cellphone' placeholder='Ingresa tu celular' value={input.cellphone} onChange={handleInput}/>
+                
+                <input type="text" className='input--form' required name='adress' placeholder='Ingresa tu dirección' value={input.adress} onChange={handleInput}/>
+                
+                <input type="email" className='input--form' required name='email' placeholder='Ingresa tu mail' value={input.email} onChange={handleInput}/>
+
+
 
                 <button type='submit' className='form--btn'>Registrarse</button>
 

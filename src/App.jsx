@@ -8,6 +8,7 @@ import LoginForm from "./components/LoginForm/LoginForm.jsx";
 import { CartProvider } from "./context/cartContext.js";
 import Cart from "./components/Cart/Cart.jsx";
 import { LoginProvider } from "./context/loginContext.js";
+import CardUser from "./components/CardUser/CardUser.jsx";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/register" element={ <RegisterForm/>}/>
             <Route path="/login" element={ <LoginForm/> }/>
             <Route path="/cart" element={ <Cart/> }/>
+            <Route path="/cardUser" element={ <CardUser/> }/>
             <Route path="*" element={<h2>Sitio en construcción</h2>}/>
           </Routes>  
         </LoginProvider>

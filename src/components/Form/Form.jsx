@@ -1,7 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useState, useRef } from 'react'
 import './Form.css'
 import { LoginContext } from '../../context/loginContext'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../../service/firebase/config'
  
 const Form = () => {
     const {loginUser} = useContext(LoginContext)
@@ -12,23 +14,29 @@ const Form = () => {
 
     const pForm = useRef(null)
 
-    const [clients, setClients] = useState( () => {
-      const clientsLS = localStorage.getItem('clients')
-
-      if (clientsLS) {
-        return JSON.parse(clientsLS)
-      } else {
-        return []
-      }
-    })
+    const [user, setUser] = useState([])
 
     const [input, setInput] = useState({dni: "", pass: ""})
 
-    const checkUser = (dni, pass) => {
-      setClients([...clients, (dni, pass)])
+    useEffect( () => {
+      const myUsers = collection(db, "users")
 
-      const findDni = clients.find(client => client.dni == dni)
-      const findPass = clients.find(client => client.pass == pass)
+      getDocs(myUsers)
+      .then((user) => {
+        const newUser = user.docs.map(client => {
+          const data = client.data()
+          return {...data}
+        })
+        setUser(newUser)
+      })
+      .catch(error => console.log(error))
+    })
+
+    const checkUser = (dni, pass) => {
+      setUser([...user, (dni, pass)])
+
+      const findDni = user.find(client => client.dni == dni)
+      const findPass = user.find(client => client.pass == pass)
 
 
       if (findDni && findPass) {

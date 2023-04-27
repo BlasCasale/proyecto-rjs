@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { LoginContext } from '../../context/loginContext'
+import { Link } from 'react-router-dom'
 import './UserAvatarNav.css'
 
 const UserAvatarNav = () => {
@@ -13,10 +14,12 @@ const UserAvatarNav = () => {
             <p className='name--user'>{loged.name}</p>
 
         </div>
+        <Link to={"/cardUser"}>Tu perfil</Link>
 
         <div className='box--user'>
             <button onClick={() => logoutUser()} className='btn--avatar'>Cerrar sesión</button>
         </div>
+
     </>
   )
 }
