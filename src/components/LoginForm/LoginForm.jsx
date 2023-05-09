@@ -6,13 +6,13 @@ import './LoginForm.css'
 
 const LoginForm = () => {
 
-  const {loged} = useContext(LoginContext)
+  const { loged } = useContext(LoginContext)
 
   return (
     <div className='box--form'>
-    {
-      loged ? ( <CardUser/> ) : (<Form />) 
-    }
+      {
+        loged ? (<CardUser />) : (<Form />)
+      }
     </div>
   )
 }

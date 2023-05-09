@@ -2,8 +2,8 @@ import React, { useContext } from 'react'
 import './CartItem.css'
 import { CartContext } from '../../context/cartContext'
 
-const CartItem = ({item, quantity}) => {
-  const {deleteItemOfCart} = useContext(CartContext)
+const CartItem = ({ item, quantity }) => {
+  const { deleteItemOfCart } = useContext(CartContext)
 
   return (
     <div className='card--cart'>

@@ -3,17 +3,20 @@
     height: 50px;
     border-radius: 25px;
 }
+
 .name--user {
     color: #fafafa;
     font-weight: bold;
     text-align: center;
 }
+
 .box--user {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 .btn--avatar {
     border: none;
     background-color: #3A7CA5;
@@ -22,6 +25,7 @@
     padding: 4px;
     border-radius: 10px;
 }
+
 .btn--avatar:hover {
     background-color: #fafafa;
     color: #3A7CA5;

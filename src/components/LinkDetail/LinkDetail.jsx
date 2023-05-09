@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './LinkDetail.css'
 
 const LinkDetail = () => {
   return (
     <>
-        <Link to={"/"}>Seguir comprando</Link>
-        <Link to={"/cart"}>Terminar compra</Link>
+      <Link className='link--detail' to={"/"}>Seguir comprando</Link>
+      <Link className='link--detail' to={"/cart"}>Terminar compra</Link>
     </>
   )
 }

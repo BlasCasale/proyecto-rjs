@@ -5,20 +5,23 @@
     align-items: center;
     background-color: #79ADDC;
 }
+
 .fieldset--register {
     width: 320px;
-    height: 300px;
+    height: 380px;
     padding: 5px;
     margin: 20px 0px;
     background-color: #fff;
     border: solid 4px #003554;
     border-radius: 30px;
 }
+
 legend {
     text-align: center;
     font-weight: bold;
     font-size: 20px;
 }
+
 .form {
     display: flex;
     flex-direction: column;
@@ -26,6 +29,7 @@ legend {
     align-items: center;
     gap: 10px;
 }
+
 .input--form {
     width: 180px;
     height: 20px;
@@ -33,31 +37,28 @@ legend {
     border: solid 2px #938BA1;
     border-radius: 10px;
 }
+
 .form--btn {
     border: none;
     background-color: #79ADDC;
     font-size: 18px;
     padding: 5px;
     border-radius: 10px;
+    transition: 1s;
 }
+
 .form--btn:hover {
     background-color: #003554;
     color: white;
     cursor: pointer;
 }
+
 .p--negative {
     color: red;
     font-weight: bold;
 }
+
 .p--positive {
     color: green;
     font-weight: bold;
 }
-
-
-/*
-        @include sizes(320px, 300px);
-        @include paddingMarginBGC (5px, 20px 0px, $terciario);
-        border: solid 3px $primario;
-        border-radius: 30px;
-*/

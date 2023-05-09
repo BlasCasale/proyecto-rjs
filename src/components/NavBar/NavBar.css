@@ -5,6 +5,7 @@
         justify-content: center;
         align-items: center;
     }
+
     ul {
         display: flex;
         flex-direction: column;
@@ -12,16 +13,15 @@
         gap: 20px;
         height: 100px;
     }
+
     ul li {
         list-style: none;
     }
+
     a {
         color: #fff;
         text-decoration: none;
         cursor: pointer;
-    }
-    .numCart {
-        color: #fff;
     }
 }
 
@@ -30,6 +30,7 @@
         flex-direction: row;
     }
 }
+
 @media screen and (min-width: 1024px) {
     header {
         display: grid;
@@ -39,4 +40,3 @@
         align-items: center;
     }
 }
-

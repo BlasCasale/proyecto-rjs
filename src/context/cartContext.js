@@ -7,17 +7,17 @@ export const CartProvider = ({children}) => {
     const [cart, setCart] = useState([])
     
     const alreadyInTheCart = (id) => {
-        return cart.some(prod => prod.id === id)
+        return cart.some(prod => prod.item.id === id)
     }
 
     const addToCart = (item, quantity) => {
         if (!alreadyInTheCart(item.id)) {
-            setCart([ ...cart, {item, quantity} ])
+            setCart(prev => [...prev, {item, quantity} ])
         }
     }
 
     const deleteItemOfCart = (id) => {
-        const updatedCart = cart.filter((prod) => prod.id !== id)
+        const updatedCart = cart.filter((prod) => prod.item.id !== id)
 
         setCart(updatedCart)
     }

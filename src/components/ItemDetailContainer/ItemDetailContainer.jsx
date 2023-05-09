@@ -10,15 +10,15 @@ const ItemDetailContainer = () => {
 
   const [product, setProduct] = useState(null)
 
-  const {id} = useParams()
+  const { id } = useParams()
 
-  useEffect( () => {
+  useEffect(() => {
     const newDoc = doc(db, 'products', id)
 
     getDoc(newDoc)
-      .then( res => {
+      .then(res => {
         const data = res.data()
-        const newProduct = {id: res.id, ...data}
+        const newProduct = { id: res.id, ...data }
         setProduct(newProduct)
       })
       .catch(error => console.log(error))
@@ -29,7 +29,7 @@ const ItemDetailContainer = () => {
       <div className='container--h2'>
         <h2>Detalles del producto</h2>
       </div>
-      <ItemDetail {...product}/>
+      <ItemDetail {...product} />
     </div>
   )
 }

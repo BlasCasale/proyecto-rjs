@@ -3,11 +3,11 @@ import Item from '../Item/Item'
 import './ItemList.css'
 
 
-const ItemList = ({products}) => {
+const ItemList = ({ products }) => {
 
   return (
     <div className='layout' >
-        {products.map(prod => <Item key={prod.id} {...prod}/>)}
+      {products.map(prod => <Item key={prod.id} {...prod} />)}
     </div>
   )
 }

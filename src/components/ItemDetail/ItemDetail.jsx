@@ -4,15 +4,15 @@ import { useState, useContext } from 'react'
 import { CartContext } from '../../context/cartContext'
 import LinkDetail from '../LinkDetail/LinkDetail'
 
-const ItemDetail = ({id, name, price, img, stock}) => {
-  const [addQuantity, setAddQuantity] = useState(0) 
+const ItemDetail = ({ id, name, price, img, stock, desc }) => {
+  const [addQuantity, setAddQuantity] = useState(0)
 
-  const {addToCart}  = useContext(CartContext)
+  const { addToCart } = useContext(CartContext)
 
   const handlerQuantity = (quantity) => {
     setAddQuantity(quantity)
 
-    const item = {id, name, price}
+    const item = { id, name, price }
 
     addToCart(item, quantity)
   }
@@ -24,12 +24,14 @@ const ItemDetail = ({id, name, price, img, stock}) => {
 
       <p className='price'>${price}</p>
 
-      <img src={img} alt={name} className='card--img'/>
-      
+      <img src={img} alt={name} className='card--img' />
+
+      <p className=''>{desc}</p>
+
       {
-        addQuantity > 0 ? (<LinkDetail/>) : (<ItemCount initial={1} stock={stock} addFunction={handlerQuantity}/>)
-      }  
-      
+        addQuantity > 0 ? (<LinkDetail />) : (<ItemCount initial={1} stock={stock} addFunction={handlerQuantity} />)
+      }
+
     </div>
   )
 }

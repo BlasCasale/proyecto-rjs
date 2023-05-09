@@ -6,17 +6,19 @@ import { Link, NavLink } from 'react-router-dom'
 import { LoginContext } from '../../context/loginContext'
 import ConditionalLink from '../ConditionalLink/ConditionalLink'
 import UserAvatarNav from '../UserAvatarNav/UserAvatarNav'
+import { CartContext } from '../../context/cartContext'
 
 
 const NavBar = () => {
-  const {loged} = useContext(LoginContext)
+  const { loged } = useContext(LoginContext)
 
+  const { cart } = useContext(CartContext)
   return (
     <header>
 
       <Link to={"/"}>
         <h1>Mundo Gamer</h1>
-      </Link>    
+      </Link>
 
       <nav>
 
@@ -28,7 +30,7 @@ const NavBar = () => {
           <li>
             <NavLink to={"/category/procesador"}>Procesador</NavLink>
           </li>
-            
+
           <li>
             <NavLink to={"/category/mother"}>Mother</NavLink>
           </li>
@@ -40,20 +42,20 @@ const NavBar = () => {
           <li>
             <NavLink to={"category/ram"}>RAM</NavLink>
           </li>
-      
+
           <li>
             <NavLink to={"/category/discos"}>Discos</NavLink>
           </li>
 
           {
-            loged ? (<UserAvatarNav/>) : (<ConditionalLink/>)
+            loged ? (<UserAvatarNav />) : (<ConditionalLink />)
           }
 
         </ul>
 
       </nav>
 
-      <CardWidget/>
+      {cart.length == 0 ? <></> : <CardWidget />}
 
     </header>
   )

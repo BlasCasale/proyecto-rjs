@@ -6,6 +6,7 @@
     background-color: #3A7CA5;
     color: #fff;
 }
+
 .add--btn {
     width: 140px;
     height: 20px;
@@ -14,6 +15,7 @@
     background-color: #3A7CA5;
     color: #fff;
 }
+
 .add--btn:hover {
     background-color: #003554;
 }

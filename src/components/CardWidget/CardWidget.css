@@ -1,12 +1,18 @@
 img {
     width: 70px;
 }
+
 strong {
     font-size: 20px;
 }
-.carrito {
+
+.cart {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem;
+}
+
+.cart--total {
+    color: #fafafa;
 }
