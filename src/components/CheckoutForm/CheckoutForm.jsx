@@ -46,7 +46,7 @@ const CheckoutForm = () => {
 
     const handlerSubmit = (e) => {
         e.preventDefault()
-        const date = new Date
+        const date = new Date()
 
         const day = date.getDay()
         const month = date.getMonth()
